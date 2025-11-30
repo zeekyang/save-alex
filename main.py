@@ -24,13 +24,20 @@ clock = pygame.time.Clock()
 # # = Wall
 # space = open path
 maze = [
-    "##########",
-    "#A     # #",
-    "# ### ## #",
-    "#   #    #",
-    "### #### #",
-    "#      B #",
-    "##########"
+    "#      ##  #####",
+    "#A####  # ######",
+    "# #####   ######",
+    "  ####### ######",
+    " #      #    ###",
+    " # ### #  ## ###",
+    " # ###   # #  ##",
+    " # ####### ## ##",
+    "##  ######     #",
+    "####   #   ### #",
+    "###B##   ####  #",
+    "### ########  ##",
+    "###          ###",
+    "################"
 ]
 
 rows = len(maze)
@@ -43,6 +50,11 @@ for y in range(rows):
             player_x, player_y = x, y
         if maze[y][x] == "B":
             blackhole_pos = (x, y)
+
+#Adds the Black Hole image
+blackhole_image = pygame.image.load("black_hole.png").convert_alpha()
+blackhole_image = pygame.transform.scale(blackhole_image, (TILE, TILE))
+
 
 # Helper Functions
 def draw_maze():
@@ -57,14 +69,15 @@ def draw_maze():
 
             # Black hole (goal)
             if cell == "B":
-                center = (x*TILE + TILE//2, y*TILE + TILE//2)
-                pygame.draw.circle(screen, (20, 0, 40), center, TILE//2)
-                pygame.draw.circle(screen, (0, 0, 0), center, TILE//3)
+                screen.blit(blackhole_image, (x * TILE, y * TILE))
+
+#imports the player icon into VSCode
+player_image = pygame.image.load("Alex.png").convert_alpha()
+player_image = pygame.transform.scale(player_image, (TILE, TILE))
 
 def draw_player():
     """Draw Alex (green square)."""
-    pygame.draw.rect(screen, (0, 255, 0),
-                     (player_x*TILE, player_y*TILE, TILE, TILE))
+    screen.blit(player_image, (player_x * TILE, player_y * TILE))
 
 def handle_movement():
     """Move character and prevent walking into walls."""
@@ -140,3 +153,4 @@ while running:
 
 pygame.quit()
 sys.exit()
+
