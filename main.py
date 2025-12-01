@@ -206,7 +206,7 @@ def introduction_scene():
         "but Alex somehow produces a faint glow of his own.",
         "",
         "This small light allows him to see only a tiny area around himself,",
-        "and a faint linear beam that points toward the black hole.",
+        "and a faint beam that points toward the black hole.",
         "",
         "Navigate through the asteroid field maze,",
         "and reach the black hole to escape this dimension.",
@@ -239,7 +239,7 @@ def game_over_screen():
     while True:
         screen.fill((0, 0, 0))
 
-        message = font.render("YOU WIN!", True, (255, 255, 255))
+        message = font.render("You Saved Alex!", True, (255, 255, 255))
         restart = small_font.render("Press R to Play Again or Q to Quit", True, (180, 180, 180))
 
         screen.blit(message, (SCREEN_WIDTH//2 - message.get_width()//2, 300))
@@ -259,7 +259,7 @@ def game_over_screen():
                     pygame.quit(); sys.exit()
 
 
-# MAIN GAME FLOW
+# Main Game Flow
 
 title_screen()
 introduction_scene()
