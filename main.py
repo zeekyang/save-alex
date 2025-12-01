@@ -208,7 +208,7 @@ def introduction_scene():
         "This small light allows him to see only a tiny area around himself,",
         "and a faint beam that points toward the black hole.",
         "",
-        "Navigate through the asteroid field maze,",
+        "Use ARROW KEYS to navigate through the asteroid field,",
         "and reach the black hole to escape this dimension.",
         "",
         "Press ENTER to begin."
